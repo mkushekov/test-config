@@ -1,0 +1,57 @@
+server:
+  port : 4050
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone : http://discUser:discPassword@localhost:4041/eureka/
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: 12345
+  datasource:
+    username: pltacourse
+    password : GH%^456756Ghr
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:10.25.72.24}:5432/plta_course_db?currentSchema=public
+  jpa:
+    show-sql: true
+    generate-ddl: false
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+    username: admin
+    password: admin123
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 1
+  main:
+    allow-circular-references: true
+
+#keycloak
+keycloak:
+  authServerUrl: ${OAUTH2_SERVER:http://10.25.72.24:4030}/auth
+  realm: plt_realm
+  resource: plt_client
+  credentials:
+    secret: 8R9DlO8EQjUcPzI8lwinQTpnmKhJEP0f
+kc:
+  adapter:
+    resource: admin-cli
+    username: system@plta.kz
+    password: system@plta.kz
+app:
+  gateway-url: http://10.25.72.24:4044/
+  file-storage-path: E:\\projects\\plt-academy\\files
+mybatis:
+  type-handlers-package: kz.plta.course.config.mybatis.handler
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

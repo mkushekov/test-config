@@ -1,0 +1,55 @@
+server:
+  port : 4047
+eureka:
+  instance:
+    instance-id: user:${random.value}
+    prefer-ip-address: true
+  registryFetchIntervalSeconds: 5
+  client:
+    service-url:
+      defaultZone : http://discUser:discPassword@localhost:4041/eureka/
+spring:
+  redis:
+    host: ${REDIS_HOST:10.25.72.24}
+    port: 6379
+    password: 12345
+  datasource:
+    username: pltauser
+    password : V$3pUz2eR
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:10.25.72.24}:5432/plta_user_db?currentSchema=public
+  jpa:
+    show-sql: true
+    generate-ddl: false
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:10.25.72.24}
+    port: 5672
+    username: admin
+    password: admin123
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+#keycloak
+keycloak:
+  authServerUrl: ${OAUTH2_SERVER:http://10.25.72.24:4030}/auth
+  realm: plt_realm
+  resource: plt_client
+  credentials:
+    secret: Jv3H12GW9WGDr22mpeSHfv6VaAR3Qdta
+resource-uuid: f7b1dbb5-56fe-48c5-92ac-d0f4b031d98b
+kc:
+  adapter:
+    resource: admin-cli
+    username: system@plta.kz
+    password: system@plta.kz
+app:
+  gateway-url: http://10.25.72.24:4044/
+  role:
+    LISTENER_ID: 2
+

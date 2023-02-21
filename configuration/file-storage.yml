@@ -1,0 +1,31 @@
+server:
+  port : 4051
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone : http://discUser:discPassword@localhost:4041/eureka/
+spring:
+  datasource:
+    username: pltafile
+    password : f5g8H87m3$7^
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:10.25.72.24}:5432/plta_file_storage_db?currentSchema=public
+  jpa:
+    show-sql: true
+    generate-ddl: true
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+  main:
+    allow-circular-references: true
+storage:
+  root-directory: /gl/file-storage/
+#keycloak
+keycloak:
+  authServerUrl: ${OAUTH2_SERVER:http://10.25.72.24:4030}/auth
+  realm: plt_realm
+  resource: plt_client
+  credentials:
+    secret: 8R9DlO8EQjUcPzI8lwinQTpnmKhJEP0f

@@ -1,0 +1,66 @@
+server:
+  port : 4048
+eureka:
+  instance:
+    prefer-ip-address: true
+  registryFetchIntervalSeconds: 5
+  client:
+    service-url:
+      defaultZone : http://discUser:discPassword@localhost:4041/eureka/
+
+spring:
+  main:
+    allow-circular-references: true
+  #  data:
+#    redis:
+#      repositories:
+#        enabled: true
+#  redis:
+#    host: localhost
+#    port: 6379
+#    password: 12345
+  datasource:
+    username: pltanotification
+    password : '#$GHHsdf4er45'
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/plta_notif_db?currentSchema=public
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+    username: admin
+    password: admin123
+  mail:
+    host: smtp.mail.ru
+    port: 465
+    username: ejumys@mail.ru
+    password_real: ORUo1Mytya1&
+    password: TXt5RmLVs0wcLS3n0eA4
+    debug: true
+    ssl:
+      enable: true
+
+#keycloak
+keycloak:
+  authServerUrl: http://${OAUTH2_SERVER:localhost}:4030/auth
+  realm: plt_realm
+  resource: plt_client
+  credentials:
+    secret: 8R9DlO8EQjUcPzI8lwinQTpnmKhJEP0f
+
+app:
+  queue:
+    common-notify: q.common-notify
+    email-send: q.email-send
+    notification-system-send: q.notification-system-send
+    notification-send: q.notification-send
