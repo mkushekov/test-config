@@ -1,4 +1,6 @@
 spring:
+  main:
+    web-application-type: reactive
   ## API SECURITY WITH KEYCLOAK PROVIDER
   security:
     oauth2:
