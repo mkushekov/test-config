@@ -19,7 +19,6 @@ spring:
             authorization-grant-type: authorization_code
             client-id: ${app.config.keycloak.client-id}
             client-secret: ${app.config.keycloak.client-secret}
-            provider: keycloak
             redirect-uri: http://localhost:4044/login/oauth2/code/keycloak
             scope: openid
       resourceserver:
