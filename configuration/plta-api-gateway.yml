@@ -62,7 +62,7 @@ app:
     keycloak:
       url: http://10.25.72.24:4030/auth
       realm: plta-realm
-      client-secret: 485aaa20-de67-42f4-999a-40ddf6ad2e7d
+      client-secret: EL3ERLfFCHIfshARAf5xskJxSFVUyHew
       client-id: plta-client-id
 
 server:
