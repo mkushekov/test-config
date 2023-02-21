@@ -14,12 +14,13 @@ spring:
             user-info-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
         registration:
-          internet-banking-core-client:
+          plta:
+            provider: keycloak
             authorization-grant-type: authorization_code
             client-id: ${app.config.keycloak.client-id}
             client-secret: ${app.config.keycloak.client-secret}
             provider: keycloak
-            redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
+            redirect-uri: http://localhost:4044/login/oauth2/code/keycloak
             scope: openid
       resourceserver:
         jwt:
