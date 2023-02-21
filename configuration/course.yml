@@ -35,7 +35,6 @@ spring:
   main:
     allow-circular-references: true
 app:
-  gateway-url: http://10.25.72.24:4044/
   file-storage-path: E:\\projects\\plt-academy\\files
 mybatis:
   type-handlers-package: kz.plta.course.config.mybatis.handler
