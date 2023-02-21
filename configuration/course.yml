@@ -34,19 +34,6 @@ spring:
           max-attempts: 1
   main:
     allow-circular-references: true
-
-#keycloak
-keycloak:
-  authServerUrl: ${OAUTH2_SERVER:http://10.25.72.24:4030}/auth
-  realm: plt_realm
-  resource: plt_client
-  credentials:
-    secret: 8R9DlO8EQjUcPzI8lwinQTpnmKhJEP0f
-kc:
-  adapter:
-    resource: admin-cli
-    username: system@plta.kz
-    password: system@plta.kz
 app:
   gateway-url: http://10.25.72.24:4044/
   file-storage-path: E:\\projects\\plt-academy\\files
