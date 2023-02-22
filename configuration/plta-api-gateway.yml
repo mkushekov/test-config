@@ -21,10 +21,10 @@ spring:
             client-secret: ${app.config.keycloak.client-secret}
             redirect-uri: ${app.config.keycloak.url}/login/oauth2/code/{registrationId}
             scope: profile
-#      resourceserver:
-#        jwt:
-#          issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
-#          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
+          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
 
   ## GATEWAY CONFIGURATIONS
   cloud:
