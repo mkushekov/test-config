@@ -8,7 +8,7 @@ spring:
         provider:
           keycloak:
             authorization-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/auth
-            jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+#            jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
             token-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/token
             user-info-authentication-method: post
             user-info-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
@@ -21,10 +21,10 @@ spring:
             client-secret: ${app.config.keycloak.client-secret}
             redirect-uri: ${app.config.keycloak.url}/login/oauth2/code/{registrationId}
             scope: profile
-      resourceserver:
-        jwt:
-          issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
-          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+#      resourceserver:
+#        jwt:
+#          issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
+#          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
 
   ## GATEWAY CONFIGURATIONS
   cloud:
