@@ -19,7 +19,7 @@ spring:
             authorization-grant-type: authorization_code
             client-id: ${app.config.keycloak.client-id}
             client-secret: ${app.config.keycloak.client-secret}
-            redirect-uri: {baseUrl}/login/oauth2/code/{registrationId}
+            redirect-uri: ${app.config.keycloak.url}/login/oauth2/code/{registrationId}
             scope: profile
 #      resourceserver:
 #        jwt:
