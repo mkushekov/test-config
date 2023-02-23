@@ -17,7 +17,7 @@ spring:
     username: pltauser
     password : V$3pUz2eR
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://${POSTGRES_HOST:10.25.72.24}:5432/plta_user_db?currentSchema=public
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/plta_user_db?currentSchema=public
   jpa:
     show-sql: true
     generate-ddl: false
