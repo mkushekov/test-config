@@ -7,10 +7,10 @@ eureka:
     service-url:
       defaultZone : http://localhost:4041/eureka
 spring:
-  redis:
-    host: localhost
-    port: 6379
-    password: 12345
+  cache:
+    type: redis
+    redis:
+      time-to-live: "6h"
   datasource:
     username: pltacourse
     password : GH%^456756Ghr
@@ -34,6 +34,10 @@ spring:
           max-attempts: 1
   main:
     allow-circular-references: true
+redis-cache:
+  master:
+    host: 10.25.72.24
+    port: 6379
 app:
   file-storage-path: E:\\projects\\plt-academy\\files
 mybatis:

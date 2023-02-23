@@ -1,6 +1,9 @@
 spring:
   main:
     web-application-type: reactive
+  session:
+    timeout: 2h
+    store-type: redis
   ## API SECURITY WITH KEYCLOAK PROVIDER
   security:
     oauth2:
@@ -80,7 +83,10 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
-
+redis-cache:
+  master:
+    host: 10.25.72.24
+    port: 6379
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
