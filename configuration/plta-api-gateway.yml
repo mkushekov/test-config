@@ -85,7 +85,7 @@ eureka:
     prefer-ip-address: true
 redis-cache:
   master:
-    host: http://10.25.72.24
+    host: localhost
     port: 6379
     password: 12345
 logging:
