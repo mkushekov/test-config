@@ -2,12 +2,10 @@ server:
   port : 4047
 eureka:
   instance:
-    instance-id: user:${random.value}
     prefer-ip-address: true
-  registryFetchIntervalSeconds: 5
   client:
     service-url:
-      defaultZone : http://discUser:discPassword@localhost:4041/eureka/
+      defaultZone : http://localhost:4041/eureka
 spring:
   security:
     oauth2:
