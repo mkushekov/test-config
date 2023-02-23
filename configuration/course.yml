@@ -36,8 +36,9 @@ spring:
     allow-circular-references: true
 redis-cache:
   master:
-    host: 10.25.72.24
+    host: localhost
     port: 6379
+    password: 12345
 app:
   file-storage-path: E:\\projects\\plt-academy\\files
 mybatis:
