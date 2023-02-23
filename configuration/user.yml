@@ -9,6 +9,29 @@ eureka:
     service-url:
       defaultZone : http://discUser:discPassword@localhost:4041/eureka/
 spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/auth
+            jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+            token-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/token
+            #            user-info-authentication-method: post
+            user-info-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+        registration:
+          gateway:
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            client-id: ${app.config.keycloak.client-id}
+            client-secret: ${app.config.keycloak.client-secret}
+            redirect-uri: http://localhost:4044/login/oauth2/code/gateway
+            scope: openid
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}
+          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
   redis:
     host: ${REDIS_HOST:10.25.72.24}
     port: 6379
@@ -36,19 +59,13 @@ spring:
       max-request-size: 1000MB
 
 #keycloak
-keycloak:
-  authServerUrl: ${OAUTH2_SERVER:http://10.25.72.24:4030}/auth
-  realm: plt_realm
-  resource: plt_client
-  credentials:
-    secret: Jv3H12GW9WGDr22mpeSHfv6VaAR3Qdta
-resource-uuid: f7b1dbb5-56fe-48c5-92ac-d0f4b031d98b
-kc:
-  adapter:
-    resource: admin-cli
-    username: system@plta.kz
-    password: system@plta.kz
 app:
+  config:
+    keycloak:
+      url: http://10.25.72.24:4030/auth
+      realm: plta-realm
+      client-secret: EL3ERLfFCHIfshARAf5xskJxSFVUyHew
+      client-id: plta-client-id
   gateway-url: http://10.25.72.24:4044/
   role:
     LISTENER_ID: 2
