@@ -87,6 +87,7 @@ redis-cache:
   master:
     host: http://10.25.72.24
     port: 6379
+    password: 12345
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
